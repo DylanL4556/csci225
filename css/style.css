@@ -21,6 +21,9 @@
     text-decoration: none;
     color: #0baaf3;
 }
+.navbar.active{
+    left: 0;
+}
             .introduction {
                 background-color: #525252;
                 padding: 25px;
