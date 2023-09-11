@@ -1,7 +1,6 @@
 
 .navbar{
                 background-color: #424242;
-                /*vs code allowing you to select colors with a paint style slider is probably the coolest feature i have seen so far in this IDE*/
                 padding: 10px
 }
             .navbar  ul{
@@ -15,7 +14,7 @@
             .navbar a { /*this section is to edit how the hyperlinks will appear, although im sure you know this.*/
                 text-decoration: none;
                 color: #0baaf3;
-            } /*end of the css code for the navbar style, the next section will be for the introduction section*/
+            }
             .introduction {
                 background-color: #525252;
                 padding: 25px;
