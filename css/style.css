@@ -26,3 +26,13 @@
             .introduction p{
               color: #ffffff;
             }
+.Img-cont-format{
+    margin: 20px;
+    float: left;
+    background-color: #424242;
+}
+
+.Img-format{
+    width: 300px;
+    height: auto;
+}
