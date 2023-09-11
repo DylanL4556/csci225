@@ -1,20 +1,26 @@
 
 .navbar{
-                background-color: #424242;
-                padding: 10px
+    position: fixed;
+    top: 0;
+    left: -200px;
+    width: 200px;
+    height: 100%;    
+    background-color: #424242;
+    transition: left 0.3s ease;
 }
-            .navbar  ul{
-                list-style-type: none;
-                padding: 0;
-            }
-            .navbar li{
-                display: inline;
-                margin-right: 15px;
-            }
-            .navbar a { /*this section is to edit how the hyperlinks will appear, although im sure you know this.*/
-                text-decoration: none;
-                color: #0baaf3;
-            }
+.navbar  ul{
+    list-style-type: none;
+    padding: 0;    
+}
+.navbar li{
+    margin: 10px 0;
+}
+.navbar a { /*this section is to edit how the hyperlinks will appear, although im sure you know this.*/
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: #0baaf3;
+}
             .introduction {
                 background-color: #525252;
                 padding: 25px;
