@@ -1,20 +1,21 @@
 
 .navbar{
     position: fixed;
-    top: 0;
+    top: 0%;
     width: 200px;
     height: 100%;    
     background-color: #424242;
-    transition: left 0.6s ease;
+    transition: left 1.5s ease;
     transform: translateX(-100%);
     z-index: 99;
+    margin: 0;
 }
 .navbar  ul{
     list-style-type: none;
     padding: 0;    
 }
 .navbar li{
-    margin: 10px 0;
+    margin: 0px 0;
 }
 .navbar a { /*this section is to edit how the hyperlinks will appear, although im sure you know this.*/
     display: block;
@@ -26,19 +27,25 @@
     transform: translateX(0);
 }
 .introduction {
-                background-color: #525252;
-                padding: 10px;
-                z-index: 10;
-            }
+    margin: 0;
+    background-color: #525252;
+    padding: 0px;
+    z-index: 10;
+    }
             .introduction h1{
                 font-size: 24px;
                 color: #ffffff;
+                padding: 5px;
             }
             .introduction p{
               color: #ffffff;
+              padding: 10px;
             }
 .Img-cont-format{
-    margin: 20px;
+    margin-left: 10px;
+    margin-right: 0;
+    margin-top: 0;
+    margin-bottom: 0;
     float: left;
     background-color: #424242;
     z-index: 10;
