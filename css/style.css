@@ -67,17 +67,34 @@ body {
     width: 200px;
     height: 100%;    
     background-color: #424242;
-    transition: left 1.5s ease;
     transform: translateX(-100%);
     z-index: 99;
     margin: 0;
+    border-right-style: outset;
+    border-right-color: #ffffff;
+    border-right-width: 2px;
+
+}
+.navbar h1{
+    border-style: solid;
+    border-color: #000000;
+    background-color:#5c5b5b;
+    color: #ffffff;
+    font-size: 24px;
+    text-align: center;
 }
 .navbar  ul{
     list-style-type: none;
     padding: 0;    
+    padding-top: 20px;
 }
 .navbar li{
     margin: 0px 0;
+    padding: 0px;
+    padding-left: 5px;
+    padding-top: 10px;
+    border-bottom-style: solid;
+    border-bottom-color: #d3d3d3;
 }
 .navbar a { /*this section is to edit how the hyperlinks will appear, although im sure you know this.*/
     display: block;
@@ -85,8 +102,15 @@ body {
     text-decoration: none;
     color: #0baaf3;
 }
+.navbar a:hover{
+    font-size: 110%;
+}
 .navbar.active{
     transform: translateX(0);
+    transition: .8s ease;
+    border-right-style: outset;
+    border-right-color: #ffffff;
+    border-right-width: 2px;
 }
 .introduction {
     margin: 0;
