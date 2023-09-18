@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function(){
     const sidebar = document.getElementsByClassName('navbar')[0];
-    const edgeMargin = 200;
+    const edgeMargin = 100;
     
     function showSideBar(){
         sidebar.classList.add('active');
