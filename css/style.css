@@ -60,6 +60,8 @@ html {
 body {
     margin: 0;
     padding: 0;
+    background-color: #424242;
+    color: #ffffff;
 }
 .navbar{
     position: fixed;
@@ -238,16 +240,17 @@ body {
     color: #7c9cfe;
 }
 .basic table{
-    height: inherit;
+    height: 790px;
 }
 /* This is the start of me trying to make my own concept for the table problem*/
 .Schedule {
     background-color: darkgray;
     color: #ffffff;
     border-collapse: collapse;
-    width: 100%;
+    width: 80%;
     table-layout: auto;
     padding-top:50px;
+    line-height: auto;
   }
 .schedule tbody{
     height: 720px !important;
@@ -270,7 +273,7 @@ body {
     text-align: center;
   }
   
-  .Schedule .tg-0lax {
+  .Schedule .cell {
     text-align: center;
     vertical-align: top;
   }
@@ -282,17 +285,18 @@ body {
     z-index: 15;
     margin: 0px;
     padding: 0px;
-    
+    margin-bottom: 0px;
   }
   
 .class-block-1::before {
+    transform: translateY(47.375px);
     content: "";
     position: absolute;
     left: 0;
-    height: 250px;
+    height: 379px;
     width: 100%;
     background-color: #f1f588;
-    z-index: -1;
+    z-index: 14;
     margin: 0px;
     padding: 0px;
   }
@@ -336,6 +340,7 @@ body {
     border-color: inherit;
     text-align: left;
     vertical-align: top;
+    color: #000000;
   }
   
   .tg .tg-0pky {
@@ -355,6 +360,7 @@ body {
   .tg .tg-ncd7 {
     background-color: #ffffc7;
     border-color: inherit;
+    color: #000000;
     text-align: left;
     vertical-align: top;
   }
@@ -362,6 +368,7 @@ body {
   .tg .tg-90e1 {
     background-color: #ffccc9;
     border-color: inherit;
+    color: #000000;
     text-align: left;
     vertical-align: top;
   }
