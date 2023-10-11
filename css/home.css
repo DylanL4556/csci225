@@ -1,0 +1,219 @@
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Courier New', monospace;
+    color: rgb(75, 146, 182);
+    font-weight: 300;
+    background-image: url('../img/cool-bg.gif');
+    background-size: cover;
+    background-attachment: fixed;
+    overflow: scroll;
+
+  }
+  h1{
+    text-transform: uppercase;
+    letter-spacing: 2px; 
+    text-shadow: 2px 2px 2px #484747;
+  }
+  p{
+    line-height: 1.6;
+    text-align: justify;
+  }
+  
+  a {
+    list-style-type: none;
+    padding: 10px;
+    color: rgb(75, 146, 182);
+  }
+
+  a:hover{
+    font-weight: 700;
+    font-size: 110%;
+  }
+
+  a:visited{
+        color: rgb(255, 186, 240);
+  }
+  ul {
+    list-style-type: none;
+    white-space: nowrap;
+    display: flex;
+  }
+  
+  li{
+    list-style-image: url('../img/bulletpt.gif');
+    margin-left: 30px;
+    display: list-item;
+    padding-right: 20px;
+    text-align: center;
+    padding-bottom: 15px;
+  }
+
+  .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #333;
+    padding: 10px;
+  }
+  
+  .navbar h1 {
+    margin: 0;
+  }
+  
+  .navbar ul {
+    margin: 0;
+    padding: 0;
+    border-style: outset;
+    border-width: 4px;
+    border-radius: 5px;
+    margin-right: 15px;
+    padding: 5px;
+  }  
+  .introduction {
+    position: fixed;
+    top: 95px; 
+    left: 20%; 
+    width: 60%;
+  }
+  
+  .introduction h1 {
+    text-align: center;
+  }
+  
+  .introduction p {
+    float: left;
+    width: 50%; 
+    margin-right: 20px;
+  }
+  
+  .Img-format {
+    float: right;
+    width: 40%; 
+  }
+  
+  footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #333;
+    text-align: center;
+    padding: 10px;
+  }
+ /*Ported from style.css. not yet edited, specifically for table -- note: table still appearing at bottom
+ todo:
+ -fix table
+ -rename basic vars, remove unnecessary styles
+ -add contactinfo and portfolio to index as sections,
+ -rework the navigation links to jump to their <div>s
+ -make sure background image is stuck to page
+ -add css style to make intro white
+ -fix the list-style-image: var to be centered
+ -start from that point on sheet and continue on.
+ */
+.basic{
+    margin: 0;
+    background-color: #525252;
+    padding: 20px;
+    display: block;
+    position: fixed;
+    top: 85%;
+    left: 30%;
+}
+.basic h1{
+    font-size: 24px;
+    color: #ffffff;
+    padding: 5px;
+    margin-left: 30px;
+    margin-top: 50px;
+}
+.basic p{
+    color: #ffffff;
+    padding: 10px;
+    padding-bottom: 25px;
+    margin: 0px;
+    margin-top: 50px;
+    font-size: 20px;
+    margin-left: 30px;
+}
+.basic a{
+    margin-top: 50px;
+    margin-left: 30px;
+    text-decoration: none;
+    color: #7c9cfe;
+}
+.basic table{
+    height: 790px;
+}
+
+.tg {
+    border-collapse: collapse;
+    border-spacing: 0;
+  }
+  .tg td {
+    border-style: solid;
+    border-width: 1px;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    overflow: hidden;
+    padding: 10px 5px;
+    word-break: normal;
+  }
+  .tg th {
+    border-style: solid;
+    border-width: 1px;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    font-weight: normal;
+    overflow: hidden;
+    padding: 10px 5px;
+    word-break: normal;
+  }
+  
+  .tg .tg-pif1 {
+    background-color: #9aff99;
+    border-color: inherit;
+    color: #000000;
+    text-align: left;
+    vertical-align: top;
+  }
+  
+  .tg .tg-7od5 {
+    background-color: #9aff99;
+    border-color: inherit;
+    text-align: left;
+    vertical-align: top;
+    color: #000000;
+  }
+  
+  .tg .tg-0pky {
+    border-color: inherit;
+    text-align: left;
+    vertical-align: top;
+  }
+  
+  .tg .tg-ksfr {
+    background-color: #ffffc7;
+    border-color: inherit;
+    color: #000000;
+    text-align: left;
+    vertical-align: top;
+  }
+  
+  .tg .tg-ncd7 {
+    background-color: #ffffc7;
+    border-color: inherit;
+    color: #000000;
+    text-align: left;
+    vertical-align: top;
+  }
+  
+  .tg .tg-90e1 {
+    background-color: #ffccc9;
+    border-color: inherit;
+    color: #000000;
+    text-align: left;
+    vertical-align: top;
+  }
