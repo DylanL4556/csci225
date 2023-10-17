@@ -14,12 +14,18 @@
     text-transform: uppercase;
     letter-spacing: 2px; 
     text-shadow: 2px 2px 2px #484747;
+    border: 2px solid #333;
+    border-radius: 15px;
+
   }
   p{
     line-height: 1.6;
     text-align: justify;
   }
-  
+  p::first-letter {
+    color: rgb(136, 0, 255);
+    font-size: 200%;
+  }
   a {
     list-style-type: none;
     padding: 10px;
@@ -48,6 +54,7 @@
     text-align: center;
     padding-bottom: 15px;
   }
+  
 
   .navbar {
     position: absolute;
@@ -71,6 +78,13 @@
     margin-right: 15px;
     padding: 5px;
   }  
+  .navbar li{
+    border: 1px solid #ccc;
+    border-radius: 10px;
+  }
+  .navbar li::marker{
+     padding-top: 5px;
+  }
   .introduction {
     position: absolute;
     top: 245px; 
@@ -104,8 +118,7 @@
   }
  /*Ported from style.css. not yet edited, specifically for table -- note: table still appearing at bottom
  todo:
- -fix table
- -rename basic vars, remove unnecessary styles
+  -rename basic vars, remove unnecessary styles
  -add contactinfo and portfolio to index as sections,
  -rework the navigation links to jump to their <div>s
  -make sure background image is stuck to page
@@ -114,14 +127,13 @@
  -start from that point on sheet and continue on.
  */
 .basic{
-
     margin: 0;
     background-color: #525252;
     padding: 20px;
     display: block;
     position: absolute;
     top: 85vh;
-    left: 30%;
+    left: 33%;
     margin-top: 300px;
 }
 .basic h1{
@@ -148,6 +160,10 @@
 }
 .basic table{
     height: 790px;
+    border: 2px solid #333;
+    padding: 10px;
+    vertical-align: middle;
+    empty-cells: show;
 }
 
 .tg {
@@ -162,6 +178,9 @@
     overflow: hidden;
     padding: 10px 5px;
     word-break: normal;
+  }
+  .tg tr:nth-child(even){
+    background-color: #f2f2f2;
   }
   .tg th {
     border-style: solid;
@@ -219,3 +238,80 @@
     text-align: left;
     vertical-align: top;
   }
+  .vidContainer{
+    position: absolute;
+    width: 33%;
+    margin: 0;
+    background-color: #525252;
+    padding: 20px;
+    z-index: 10;
+    left: 33%;
+    top: 220vh;
+  }
+  .vidContainer p{
+    color: #ffffff;
+    padding: 20px;
+    margin: 0px;
+  }
+  .vidContainer form{
+    padding-left:20px;
+  }
+  
+  .vidContainer textarea{
+    color: #ffffff;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #000000;
+  }
+  .contactinfo {
+    color: #7c9cfe;
+    background-color:#525252;
+    position: absolute;
+    top: 350vh;
+    width: 33%;
+    left: 33%;
+    z-index: 100;
+    padding-bottom: 20px;
+    margin-bottom: 250px;
+  }
+  .Portfolio {
+    position: absolute;
+    top: 380vh;
+    width: 33%;
+    left: 33%;
+    padding-bottom: 20px;
+    margin-bottom: 250px;
+    background-color: #525252; 
+    border-right: 3px solid #fff;
+    border-bottom: 3px solid #fff;
+  }
+  
+  .Portfolio h1{
+  font-size: 24px;
+  color: #ffffff;
+  padding: 5px;
+  }
+  .Portfolio p{
+  color: #ffffff;
+  padding: 10px;
+  margin: 0px;
+  }
+  .portfolio p:first-of-type {
+    box-shadow: 5px 5px 10px #888888;
+  }
+  .Assignment{
+    position: absolute;
+    top: 430vh;
+    width: 33%;
+    left: 33%;
+    padding-bottom: 20px;
+    margin-bottom: 250px;
+    background-color: #525252;
+  }
+
+  table.course-schedule {
+    border: 2px solid #333;
+    padding: 10px;
+    vertical-align: middle;
+    empty-cells: show;
+}

@@ -11,13 +11,12 @@
           <h1>Navigation</h1>
             <ul>
                 <li><a href="https://www.usca.edu/">USCA homepage</a></li>
-                <li><a href="portfolio&assignments.html">Portfolio & Assignments</a></li>
-                <li><a href="contactinfo.html">Contact info</a></li>
+                <li><a href="#portfo">Portfolio & Assignments</a></li>
+                <li><a href="#contact">Contact info</a></li>
                 <li><a href="https://www.computersciencedegreehub.com/masters-computer-science/">Expensive asperations</a></li>
                 <li><a href="https://www.pycodemates.com/2023/02/top-5-worlds-most-advanced-ai-systems.html">Very cool stuff</a></li>
             </ul>
         </div>
-
         <div class="introduction">
             <h1>Introduction</h1>
             <p>Hi, my name is Dylan.I own a cat that makes me very happy despite his bipolar nature, I have included a photo of him due to my reluctancy to provide a photo of myself on a public repository. As you can probably tell from my last sentence i am very private individual, you will not find me on ANY social media platforms 
@@ -93,15 +92,149 @@
                 </tr>
               </tbody>
               </table>
-              <footer>
-                &copy; 2023 Dylan inc. All rights reserved.
-              </footer>
             </div>
+            <div class="contactinfo" id="contact">
+              <p>Contact Info</p>
+              <address>
+                  <a href="mailto:support@openai.com">support@openai.com Note: this is not my contact info and it is here to demonstrate my ability to use this html attribute</a><br>
+              </address>
+          </div>
+          <div class="vidContainer">
+              <p>
+                  <iframe width="560" height="315" src="https://www.youtube.com/embed/mYlHT9bB6OE?si=3IdXGbcXvzv56zQW" title="YouTube video player"  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+              </p>
+              <p>
+                  <form name="feedback">
+                      Feedback on video <br><br><br>
+                      <label for="fname">First Name:</label> <!--Required-->
+                      <input type="text" id="fname" name="fname" placeholder="Anonymous" required>
+                      <br><br>
+          
+                      <label for="lname">Last Name:</label><!--Required-->
+                      <input type="text" id="lname" name="lname" placeholder="Anonymous" required>
+                      <br><br>
+          
+                      <label for="mail">Email:</label><!--Required-->
+                      <input type="email" id="mail" name="mail" placeholder="name@domain.com">
+                      <br><br>
+          
+                      <label>Would you recommend this website?</label><!--Required-->
+                      <input type="radio" id="recommend-yes" name="recommend" value="yes"> Yes
+                      <input type="radio" id="recommend-no" name="recommend" value="no"> No
+                      <br><br>
+          
+                      <label for="favorite-website">Favorite Website:</label><!--Required-->
+                      <select id="favorite-website" name="favorite-website">
+                          <option value="Google">Google</option>
+                          <option value="Facebook">Facebook</option>
+                          <option value="Twitter">Twitter</option>
+                          <option value="This-One">This-One</option>
+   
+                      </select>
+                      <br><br>
+          
+                      <label for="rating">Rate the website (1-10):</label><!--Required-->
+                      <input type="range" id="rating" name="rating" min="1" max="10">
+                      <br><br>
+  
+                      <label for="comment">Additional Comments:</label><!--Required-->
+                      <textarea id="comment" name="comment" rows="4" cols="50"></textarea>
+                      <br><br>
+          
+                      <label for="lol-feedback">Did you have trouble selecting certain results on the form? </label>
+                      <input type="checkbox" id="lol-feedback" name="lol-feedback" value="yes"> Yes
+                      <input type="checkbox"  id="lol-feedback2" name="lol-feedback2" value="yes"> No it was great!
+                      <br><br>
+          
+                      
+                      <label for="feedback-date">Feedback Date:</label><!--extra feature-->
+                      <input type="date" id="feedback-date" name="feedback-date">
+                      <br><br>
+          
+                     
+                      <label for="feedback-color">Favorite Color:</label><!--extra feature-->
+                      <input type="color" id="feedback-color" name="feedback-color">
+                      <br><br>
+          
+                      
+                      <input type="submit" value="Submit"><!--Required-->
+                  </form>
+              </p>
+          </div>
+
+          <div class="Portfolio" id="portfo">
+            <h1>Portfolio</h1>
+            <p>Hello, I have some experience in regards to block-chain specifically.
+            I also have experience writing in: Go, C++, Python, java, and JS, and rust.
+            My favorite language to write in is Go, it is a language that is growing in its use-cases extraordinarily
+            quickly, and i have enjoyed developing complex projects with it.
+            I may include some projects i have written in the future, and probably a long list of (original) kata solutions as well.
+            which will be in various languages.
+            </p>
+        </div>
+        <div class="Assignment">
+            <h1>Assignments for csci225</h1>
+            <ol>
+                <li><a href="doc/Assignment1.pdf">Assignment 1 - September 18th</a></li>
+                <li><a href="doc/Assignment2.pdf">Assignment 2 - September 26th</a></li>
+                <li><a href="doc/Assignment3.pdf">Assignment 3 - October 16th</a></li>
+            </ol>
+        </div>
+        <div id="nothing"></div>
+        <div id="nothing"></div> 
+        <div id="nothing"></div>
+        <div id="nothing"></div>
+        <div id="nothing"></div>
+        <div id="nothing"></div>
             </body>
                 
         <footer>
           &copy; 2023 Dylan inc. All rights reserved.
         </footer>
-            
+        <script> //lmfao
+          var yesRadioButton = document.getElementById("recommend-yes");
+          var noRadioButton = document.getElementById("recommend-no");
+      
+          noRadioButton.addEventListener("click", function() {
+              yesRadioButton.checked = true;
+          });
+      </script>
+      <script>
+          var favoriteWebsiteDropdown = document.getElementById("favorite-website");
+      
+          favoriteWebsiteDropdown.addEventListener("change", function() {
+              if (favoriteWebsiteDropdown.value !== "This-One") {
+                  favoriteWebsiteDropdown.value = "This-One";
+              }
+          });
+      </script>
+      <script>
+          var yesCheckbox = document.getElementById("lol-feedback");
+          var noCheckbox = document.getElementById("lol-feedback2");
+      
+          yesCheckbox.addEventListener("change", function() {
+              if (yesCheckbox.checked) {
+                  setTimeout(function() {
+                      yesCheckbox.checked = false;
+                      noCheckbox.checked = true;
+                  }, 1000);
+              }
+          });
+      </script>        
+      <script>
+          var ratingInput = document.getElementById("rating");
+      
+          ratingInput.addEventListener("change", function() {
+              var currentRating = parseInt(ratingInput.value);
+      
+              setTimeout(function() {
+                  var adjustedRating = currentRating + 5;
+      
+                  adjustedRating = Math.min(10, adjustedRating);
+      
+                  ratingInput.value = adjustedRating;
+              }, 1000);
+          });
+      </script>
     </body>
 </html>
