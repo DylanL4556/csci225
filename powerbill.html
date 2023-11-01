@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Georgia Power Bill Calculator</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="text-center">Georgia Power Bill Calculator</h1>
+        <div class="row">
+            <div class="col-lg-6 mb-4 border rounded p-3">
+                <div class="form-group">
+                    <label for="monthlyUsage">Monthly Usage in kWh:</label>
+                    <input type="text" class="form-control" id="monthlyUsage" style="width: 50%;" required>
+                </div>
+                <div class="form-group">
+                    <label for="billingDays">Number of Days for Current Billing Period:</label>
+                    <input type="text" class="form-control" id="billingDays" style="width: 50%;" required>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="insideCity">
+                    <label class="form-check-label" for="insideCity">Is your residence inside the city limit?</label>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="isSummer">
+                    <label class="form-check-label" for="isSummer">Is this a summer month?</label>
+                </div>
+                <div class="form-group">
+                    <label for="taxRate">Sales Tax Rate:</label>
+                    <input type="text" class="form-control" id="taxRate" style="width: 50%;" required>
+                </div>
+                <div class="form-group">
+                    <button type="button" class="btn btn-primary" id="calculateButton">Calculate</button>
+                </div>
+            </div>
+            <div class="col-lg-6 mb-4">
+                <div id="calculatorResults" class="border rounded p-3">
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function calculateBill() {
+            //Getting input values
+            const monthlyUsage = parseFloat(document.getElementById("monthlyUsage").value);
+            const billingDays = parseFloat(document.getElementById("billingDays").value);
+            const insideCity = document.getElementById("insideCity").checked;
+            const isSummer = document.getElementById("isSummer").checked;
+            const taxRate = parseFloat(document.getElementById("taxRate").value);
+            //const ddeclaration for calculation.
+            const baseCharge = 0.4603 * billingDays;
+            const sumrRateTiers = [
+                { usage: 650, cost: 0.066678 }, //0-650kwh usage tier 1
+                { usage: 350, cost: 0.110748 }, //650k-1000kwh usage tier 2
+                { usage: Infinity, cost: 0.114625 } //1000kWh usage tier 3
+            ];
+            const wintrRateTiers = [
+                { usage: 650, cost: 0.062404 }, //tier 1
+                { usage: 350, cost: 0.062404 }, //tier 2
+                { usage: Infinity, cost: 0.062404 } //tier 3
+            ];
+            const DemandMgt = 1.5989;
+            const nuclearContruction = 4.1562;
+            const compliance = 16.2813;
+            const fuelCostSummer = 0.045876;
+            const fuelCostWinter = 0.042859;
+
+            // Calculate base revenue
+            const rateSchedule = isSummer ? sumrRateTiers : wintrRateTiers; //i love ternary operators
+            var tier1Cost = 0;
+            var tier2Cost = 0;
+            var tier3Cost = 0;
+            var usageLeft = monthlyUsage;
+            for (const tier of rateSchedule) {
+                if (usageLeft > 0) {
+                    const tierUsage = Math.min(usageLeft, tier.usage);
+                    if (tier === rateSchedule[0]) tier1Cost += tierUsage * tier.cost; //i learned that == checks if they are same and === checks if they are same + same type
+                    else if (tier === rateSchedule[1]) tier2Cost += tierUsage * tier.cost;
+                    else tier3Cost += tierUsage * tier.cost;
+                    usageLeft -= tierUsage;
+                } else {
+                    break;
+                }
+            }
+            const baseRevenue = baseCharge + tier1Cost + tier2Cost + tier3Cost;
+
+            const fuelCost = isSummer ? (fuelCostSummer)*1000 : (fuelCostWinter)*1000;
+            const dmdMgtRider = (DemandMgt / 100) * baseRevenue;
+            const nuclearRider = (nuclearContruction / 100) * baseRevenue;
+            const complianceRider = (compliance / 100) * baseRevenue;
+
+            //ttotal revenue
+            const totalRevenue = baseRevenue + fuelCost + dmdMgtRider + nuclearRider + complianceRider;
+
+            //franchise fee
+            const franchiseFee = insideCity ? (3.0674 / 100) * totalRevenue : (1.1839 / 100) * totalRevenue;
+
+            //total bill
+            const totalBeforeTax = totalRevenue + franchiseFee;
+            const totalWithTax = totalBeforeTax * (1 + taxRate / 100);
+
+            // Display the calculated values
+            const calculatorResults = document.getElementById("calculatorResults");
+            calculatorResults.innerHTML = `
+                <h4>Details of your bill:</h4>
+                <p>Base Charge: $${baseCharge.toFixed(2)}</p>
+                <p>Tier 1 Charge: $${tier1Cost.toFixed(2)}</p>
+                <p>Tier 2 Charge: $${tier2Cost.toFixed(2)}</p>
+                <p>Tier 3 Charge: $${tier3Cost.toFixed(2)}</p>
+                <p>Base Revenue: $${baseRevenue.toFixed(2)}</p>
+                <p>Fuel Cost Rider: $${fuelCost.toFixed(2)}</p>
+                <p>Demand Side Management Rider: $${dmdMgtRider.toFixed(2)}</p>
+                <p>Nuclear Construction Cost Recovery Rider: $${nuclearRider.toFixed(2)}</p>
+                <p>Environmental Compliance Cost Recovery Rider: $${complianceRider.toFixed(2)}</p>
+                <p>Total Revenue: $${totalRevenue.toFixed(2)}</p>
+                <p>Franchise Fee: $${franchiseFee.toFixed(2)}</p>
+                <p>Total (before tax): $${totalBeforeTax.toFixed(2)}</p>
+                <p>Total (with tax): $${totalWithTax.toFixed(2)}</p>
+            `;
+        }
+
+        document.getElementById("monthlyUsage").addEventListener("change", calculateBill);
+        document.getElementById("billingDays").addEventListener("change", calculateBill);
+        document.getElementById("insideCity").addEventListener("change", calculateBill);
+        document.getElementById("isSummer").addEventListener("change", calculateBill);
+        document.getElementById("taxRate").addEventListener("change", calculateBill);
+        
+        calculateBill();
+        if (totalWithTax > 500) {
+            window.open("https://www.georgiapower.com/residential/save-money-and-energy/products-programs.html", "_blank");
+        }
+    </script>
+</body>
+
+</html>
