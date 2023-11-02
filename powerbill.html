@@ -123,8 +123,13 @@
                 <p>Total (before tax): $${totalBeforeTax.toFixed(2)}</p>
                 <p>Total (with tax): $${totalWithTax.toFixed(2)}</p>
             `;
+
+            if (totalWithTax > 500) {
+                window.open("https://www.georgiapower.com/residential/save-money-and-energy/products-programs.html", "_blank");
+            }
         }
 
+        document.getElementById("calculateButton").addEventListener("click",calculateBill);
         document.getElementById("monthlyUsage").addEventListener("change", calculateBill);
         document.getElementById("billingDays").addEventListener("change", calculateBill);
         document.getElementById("insideCity").addEventListener("change", calculateBill);
@@ -132,9 +137,7 @@
         document.getElementById("taxRate").addEventListener("change", calculateBill);
         
         calculateBill();
-        if (totalWithTax > 500) {
-            window.open("https://www.georgiapower.com/residential/save-money-and-energy/products-programs.html", "_blank");
-        }
+        
     </script>
 </body>
 
